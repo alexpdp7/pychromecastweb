@@ -21,4 +21,5 @@ from django.urls import path
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.MediaSourceListView.as_view()),
+    path('media_source/<str:mediasource>/<path:path>', views.mediasource_path, name='mediasource_path')
 ]
