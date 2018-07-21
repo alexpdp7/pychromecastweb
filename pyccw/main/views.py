@@ -1,3 +1,7 @@
-from django.shortcuts import render
+from django.views import generic
 
-# Create your views here.
+from pyccw.main import models
+
+
+class MediaSourceListView(generic.ListView):
+    model = models.MediaSource
