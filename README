@@ -1,3 +1,4 @@
 DEVELOPMENT
 
 $ pipenv install --python 3.6 -e .[dev]
+$ pipenv run python manage.py runserver

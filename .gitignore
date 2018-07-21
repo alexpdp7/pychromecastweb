@@ -1,3 +1,4 @@
 Pipfile
 Pipfile.lock
 *.egg-info
+db.sqlite3
