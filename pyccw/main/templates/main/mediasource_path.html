@@ -7,6 +7,9 @@
 			{% for folder in folders %}
 				<li><a href="{{ folder }}/">{{ folder }}</a></li>
 			{% endfor %}
+			{% for media_file in media_files %}
+				<li><a href="{% url 'cast' media_file.mediasource.name media_file.path media_file.name %}">{{ media_file.name }}</a></li>
+			{% endfor %}
 		</ul>
 	</body>
 </html>

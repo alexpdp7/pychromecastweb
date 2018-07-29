@@ -20,4 +20,4 @@ class MediaSource(models.Model):
         return [p.name for p in self._get_sub_path(sub_path).iterdir() if p.is_dir()]
 
     def get_media_files(self, sub_path):
-        return [p.name for p in self._get_sub_path(sub_path).iterdir() if p.is_file()]
+        return [{'name': p.name, 'path': sub_path, 'mediasource': self} for p in self._get_sub_path(sub_path).iterdir() if p.is_file()]

@@ -16,3 +16,7 @@ def mediasource_path(request, mediasource, path=''):
         'folders': ms.get_folders(path),
         'media_files': ms.get_media_files(path),
     })
+
+
+def cast(request, mediasource, path, file):
+    return 'foo'
