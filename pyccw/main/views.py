@@ -19,4 +19,9 @@ def mediasource_path(request, mediasource, path=''):
 
 
 def cast(request, mediasource, path, file):
-    return 'foo'
+    ms = shortcuts.get_object_or_404(models.MediaSource, name=mediasource)
+    return shortcuts.render(request, 'main/cast.html', {
+        'media_source': ms,
+        'path': path,
+        'file': file,
+    })
