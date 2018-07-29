@@ -17,7 +17,7 @@ class MediaSource(models.Model):
         return self._get_root_path() / sub_path
 
     def get_folders(self, sub_path):
-        return [p.name for p in self._get_sub_path(sub_path).iterdir() if p.is_dir()]
+        return [{'mediasource': self, 'name': p.name, 'path': pathlib.Path(sub_path) / pathlib.Path(p.name) } for p in self._get_sub_path(sub_path).iterdir() if p.is_dir()]
 
     def get_media_files(self, sub_path):
         return [{'name': p.name, 'path': sub_path, 'mediasource': self} for p in self._get_sub_path(sub_path).iterdir() if p.is_file()]
