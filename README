@@ -3,6 +3,10 @@ pychromecastweb
 pychromecastweb is a web application that allows you to browse parts of
 the local filesystem and cast videos to a Chromecast.
 
+This is in a very rough state. To do something, follow the instructions
+below, go to /admin/, create a media source pointing to folders with
+media files, go back to /, browse and cast.
+
 DEVELOPMENT
 
 $ pipenv install --python 3.6 -e .[dev]
