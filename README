@@ -1,3 +1,8 @@
+pychromecastweb
+
+pychromecastweb is a web application that allows you to browse parts of
+the local filesystem and cast videos to a Chromecast.
+
 DEVELOPMENT
 
 $ pipenv install --python 3.6 -e .[dev]
