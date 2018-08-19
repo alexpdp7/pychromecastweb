@@ -2,6 +2,7 @@ from django import shortcuts
 from django.views import generic
 
 from pyccw.main import models
+from pyccw.main import services
 
 
 class MediaSourceListView(generic.ListView):
@@ -20,6 +21,11 @@ def mediasource_path(request, mediasource, path=''):
 
 def cast(request, mediasource, path, file):
     ms = shortcuts.get_object_or_404(models.MediaSource, name=mediasource)
+    if request.POST:
+        action = request.POST['action']
+        if action == 'play':
+            services.play(ms, path, file)
+
     return shortcuts.render(request, 'main/cast.html', {
         'media_source': ms,
         'path': path,
