@@ -33,7 +33,13 @@ def get_chromecasts():
     return [cc for cc in chromecasts if cc.model_name not in EXCLUDED_MODELS]
 
 
+chromecast = None
+
 def get_chromecast():
+    global chromecast
+
+    if chromecast:
+        return chromecast
     chromecasts = get_chromecasts()
     assert len(chromecasts) == 1
     chromecast = chromecasts[0]
