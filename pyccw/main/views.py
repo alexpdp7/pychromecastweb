@@ -25,6 +25,14 @@ def cast(request, mediasource, path, file):
         action = request.POST['action']
         if action == 'play':
             services.play(ms, path, file)
+        if action == 'pause':
+            services.pause()
+        if action == 'resume':
+            services.resume()
+        if action == 'backward_10':
+            services.seek(-10)
+        if action == 'forward_10':
+            services.seek(10)
 
     return shortcuts.render(request, 'main/cast.html', {
         'media_source': ms,
