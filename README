@@ -12,7 +12,7 @@ DEVELOPMENT
 $ pipenv install --python 3.6 -e .[dev]
 $ pipenv run python manage.py migrate
 $ pipenv run python manage.py createsuperuser
-$ CAST_HOST=<ip of your host> pipenv run python manage.py runserver
+$ CAST_HOST=<ip of your host> pipenv run gunicorn -b 0.0.0.0:8000 pyccw.wsgi -w 4
 
 Chromecasts seem to use Google's public DNS servers, so you need to
 specify which host should the Chromecast use to reach the embedded web

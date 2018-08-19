@@ -1,4 +1,5 @@
 from django import shortcuts
+from django.http import HttpResponse
 from django.views import generic
 
 from pyccw.main import models
@@ -39,3 +40,12 @@ def cast(request, mediasource, path, file):
         'path': path,
         'file': file,
     })
+
+
+def subtitle(request, mediasource, path, file):
+    ms = shortcuts.get_object_or_404(models.MediaSource, name=mediasource)
+    srt = ms.get_sub_path(path) / file.replace('.vtt', '.srt')
+    vtt = services.convert_to_vtt(srt)
+    response = HttpResponse(content_type='text/vtt')
+    response.write(vtt)
+    return response

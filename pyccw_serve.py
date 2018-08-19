@@ -13,13 +13,14 @@ class Application(gunicorn.app.base.BaseApplication):
 
     def load_config(self):
         self.cfg.set('bind', '0.0.0.0:{0}'.format(self.port))
+        self.cfg.set('workers', 16)
 
     def load(self):
         return self.application
 
 
 def serve(folder, port):
-    application = WhiteNoise(application=None, root=folder)
+    application = WhiteNoise(application=None, root=folder,  allow_all_origins=True)
     app = Application(application, port)
     app.run()
 

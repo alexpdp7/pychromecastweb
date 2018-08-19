@@ -23,5 +23,6 @@ urlpatterns = [
     path('', views.MediaSourceListView.as_view()),
     path('media_source/<str:mediasource>/', views.mediasource_path, name='mediasource_path'),
     path('media_source/<str:mediasource>/<path:path>', views.mediasource_path, name='mediasource_path'),
-    path('cast/<str:mediasource>/<path:path>/<str:file>', views.cast, name='cast')
+    path('cast/<str:mediasource>/<path:path>/<str:file>', views.cast, name='cast'),
+    path('subtitle/<str:mediasource>/<path:path>/<str:file>', views.subtitle, name='subtitle')
 ]
