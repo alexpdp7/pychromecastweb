@@ -7,6 +7,10 @@ This is in a very rough state. To do something, follow the instructions
 below, go to /admin/, create a media source pointing to folders with
 media files, go back to /, browse and cast.
 
+You can also go to /admin/ to add Chromecasts manually, this is useful
+if you are running this on a wired network or the Chromecasts are in a
+different subnet.
+
 DEVELOPMENT
 
 $ pipenv install --python 3.6 -e .[dev]

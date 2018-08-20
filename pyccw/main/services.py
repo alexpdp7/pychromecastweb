@@ -10,6 +10,8 @@ import pychromecast
 
 import webvtt
 
+from pyccw.main import models
+
 
 LOG = logging.getLogger(__name__)
 EXCLUDED_MODELS = ['Google Home Mini']
@@ -48,6 +50,7 @@ def get_chromecasts():
     LOG.debug('looking for chromecasts')
     chromecasts = pychromecast.get_chromecasts()
     LOG.debug('found %s', chromecasts)
+    chromecasts += [cc.get_chromecast() for cc in models.Chromecast.objects.all()]
     return [cc for cc in chromecasts if cc.model_name not in EXCLUDED_MODELS]
 
 
