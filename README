@@ -29,3 +29,7 @@ $ gunicorn -b 0.0.0.0:8000 pyccw.wsgi -w 4
 
 If ./.local/bin is not in your path, you might need to prepend it to the
 gunicorn and django-admin commands
+
+CONFIGURATION
+
+Use PYCCW_LOG_LEVEL=(DEBUG|...) to configure log levels.
