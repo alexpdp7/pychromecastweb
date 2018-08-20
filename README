@@ -17,3 +17,15 @@ $ CAST_HOST=<ip of your host> pipenv run gunicorn -b 0.0.0.0:8000 pyccw.wsgi -w 
 Chromecasts seem to use Google's public DNS servers, so you need to
 specify which host should the Chromecast use to reach the embedded web
 server for media files.
+
+INSTALLATION
+
+This will install it under your user account:
+
+$ pip3 install --user git+https://github.com/alexpdp7/pychromecastweb.git
+$ CAST_HOST=<ip of your host> django-admin migrate --settings pyccw.settings
+$ CAST_HOST=<ip of your host> django-admin createsuperuser --settings pyccw.settings
+$ gunicorn -b 0.0.0.0:8000 pyccw.wsgi -w 4
+
+If ./.local/bin is not in your path, you might need to prepend it to the
+gunicorn and django-admin commands
