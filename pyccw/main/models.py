@@ -23,7 +23,11 @@ class MediaSource(models.Model):
         return [{'mediasource': self, 'name': p.name, 'path': pathlib.Path(sub_path) / pathlib.Path(p.name) } for p in self.get_sub_path(sub_path).iterdir() if p.is_dir()]
 
     def get_media_files(self, sub_path):
-        return [{'name': p.name, 'path': sub_path, 'mediasource': self} for p in self.get_sub_path(sub_path).iterdir() if p.is_file()]
+        return [{'name': p.name, 'path': sub_path, 'mediasource': self} for p in self.get_sub_path(sub_path).iterdir() if _is_media_file(p)]
+
+
+def _is_media_file(p):
+    return p.is_file() and not p.name.endswith('srt')
 
 
 class Chromecast(models.Model):
