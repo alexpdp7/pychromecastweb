@@ -1,4 +1,5 @@
 import subprocess
+import sys
 import tempfile
 import time
 
@@ -61,7 +62,7 @@ def get_hostname():
 
 
 def spawn_server(path, file):
-    s = subprocess.Popen(['pyccw_serve', str(path), '0'], stdout=subprocess.PIPE)
+    s = subprocess.Popen([sys.executable, '-m', 'pyccw.serve', str(path), '0'], stdout=subprocess.PIPE)
     while True:
         try:
             out = subprocess.check_output(['lsof', '-P', '-a', '-p', str(s.pid), '-i', 'TCP', '-sTCP:LISTEN'])
