@@ -8,7 +8,7 @@ setup(name='pychromecastweb',
       },
       python_requires='>=3',
       entry_points = {
-          'console_scripts': ['pyccw_serve=pyccw_serve:main'],
+          'console_scripts': ['pyccw_serve=pyccw.serve:main'],
       },
       include_package_data=True,
 )
