@@ -89,7 +89,7 @@ def convert_to_vtt(srt_path):
     srt_content = None
     for encoding in ['utf-8', 'iso-8859-1',]:
         try:
-            with open(srt_path, encoding=encoding) as f:
+            with open(str(srt_path), encoding=encoding) as f:
                 srt_content = f.read().strip()
                 break
         except UnicodeDecodeError:
