@@ -50,7 +50,7 @@ def get_chromecast():
     if chromecast:
         return chromecast
     chromecasts = get_chromecasts()
-    assert len(chromecasts) == 1
+    assert len(chromecasts) == 1, 'not exactly one chromecast found: {0}'.format(chromecasts)
     chromecast = chromecasts[0]
     chromecast.media_controller.block_until_active()
     return chromecast
