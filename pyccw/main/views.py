@@ -23,17 +23,16 @@ def mediasource_path(request, mediasource, path=''):
 def cast(request, mediasource, path, file):
     ms = shortcuts.get_object_or_404(models.MediaSource, name=mediasource)
     if request.POST:
-        action = request.POST['action']
-        if action == 'play':
-            services.play(ms, path, file)
-        if action == 'pause':
-            services.pause()
-        if action == 'resume':
-            services.resume()
-        if action == 'backward_10':
-            services.seek(-10)
-        if action == 'forward_10':
-            services.seek(10)
+        if 'action' in request.POST:
+            action = request.POST['action']
+            if action == 'play':
+                services.play(ms, path, file)
+            if action == 'pause':
+                services.pause()
+            if action == 'resume':
+                services.resume()
+        if 'seek' in request.POST:
+            services.seek(int(request.POST['seek']))
 
     return shortcuts.render(request, 'main/cast.html', {
         'media_source': ms,
