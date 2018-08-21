@@ -1,12 +1,9 @@
-<html>
-	<head>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	</head>
-	<body>
-		<ul>
-			{% for media_source in object_list %}
-				<li><a href="{% url 'mediasource_path' media_source %}">{{ media_source }}</a></li>
-			{% endfor %}
-		</ul>
-	</body>
-</html>
+{% extends "main/base.html" %}
+
+{% block content %}
+	<ul>
+		{% for media_source in object_list %}
+			<li><a href="{% url 'mediasource_path' media_source %}">{{ media_source }}</a></li>
+		{% endfor %}
+	</ul>
+{% endblock %}

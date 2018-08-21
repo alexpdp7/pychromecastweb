@@ -1,16 +1,13 @@
-<html>
-	<head>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	</head>
-	<body>
-		{{ file }} from {{ path }} on {{ media_source }}
-		<form method="POST">
-			{% csrf_token %}
-			<button name="action" value="play">Play</button>
-			<button name="action" value="pause">Pause</button>
-			<button name="action" value="resume">Resume</button>
-			<button name="action" value="backward_10">Backward 10s</button>
-			<button name="action" value="forward_10">Forward 10s</button>
-		</form>
-	</body>
-</html>
+{% extends "main/base.html" %}
+
+{% block content %}
+	{{ file }} from {{ path }} on {{ media_source }}
+	<form method="POST">
+		{% csrf_token %}
+		<button name="action" value="play">Play</button>
+		<button name="action" value="pause">Pause</button>
+		<button name="action" value="resume">Resume</button>
+		<button name="action" value="backward_10">Backward 10s</button>
+		<button name="action" value="forward_10">Forward 10s</button>
+	</form>
+{% endblock %}
