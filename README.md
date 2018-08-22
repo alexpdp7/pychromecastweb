@@ -41,3 +41,12 @@ gunicorn and django-admin commands
 ## CONFIGURATION
 
 Use `PYCCW_LOG_LEVEL=(DEBUG|...)` to configure log levels.
+
+## CONTRIBUTING
+
+PRs are welcome! Please add yourself to the contributors list in the PR.
+
+### Contributors
+
+* Álex Córcoles <alex@corcoles.net> (author)
+* Hervé Beraud <herveberaud.pro@gmail.com>
