@@ -1,5 +1,14 @@
 # pychromecastweb
 
+THIS PROJECT IS ARCHIVED AS I AM NO LONGER DEVELOPING THIS (NOW I USE
+A MIBOX DEVICE WITH KODI SO I NO LONGER REQUIRE THIS).
+
+PLEASE OPEN A TICKET AT:
+
+https://github.com/alexpdp7/alexpdp7
+
+IF YOU REQUIRE SUPPORT
+
 pychromecastweb is a web application that allows you to browse parts of
 the local filesystem and cast videos to a Chromecast.
 
